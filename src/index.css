@@ -2,23 +2,35 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   font-family: "Quicksand", sans-serif;
   line-height: 1.5;
-
   color: #ebe7ef;
   background: radial-gradient(#280a48, #20043d);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  min-height: 80rem;
+  -webkit-text-size-adjust: 90%;
+  min-height: 78rem;
+  overflow: auto;
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }
 
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;  
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
 
 main {
   width: 90%;
@@ -53,8 +65,11 @@ main h2 {
 #core-concepts li {
   width: 10rem;
   text-align: center;
+  overflow: auto;  
 }
-
+#core-concepts li::-webkit-scrollbar {
+  display: none; 
+}
 #core-concepts li img {
   height: 4rem;
   width: 6rem;
@@ -67,6 +82,11 @@ main h2 {
 
 #core-concepts li p {
   font-size: 0.9rem;
+  overflow: auto;  
+}
+
+#core-concepts li p::-webkit-scrollbar {
+  display: none;  
 }
 
 #examples {
@@ -83,6 +103,12 @@ main h2 {
   display: flex;
   gap: 0.5rem;
   list-style: none;
+  flex-wrap: wrap;
+  overflow: auto;  
+}
+
+#examples menu::-webkit-scrollbar {
+  display: none;  
 }
 
 #examples menu button {
@@ -106,15 +132,22 @@ main h2 {
   background-color: #7925d3;
   color: #ebe7ef;
 }
+
 #tab-content {
   padding: 1rem;
   border-radius: 6px;
   background-color: #2f1d43;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  overflow: auto; 
-  word-wrap: break-word; 
-  display: flex; 
-  flex-direction: column; 
+  overflow: auto;  
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+#tab-content::-webkit-scrollbar {
+  display: none;  
 }
 
 #tab-content h3 {
@@ -124,19 +157,25 @@ main h2 {
 #tab-content code {
   padding: 1rem;
   font-size: 1rem;
-  white-space: pre-wrap; 
+  white-space: pre-wrap;
 }
-
 
 @media (max-width: 768px) {
-
+  #core-concepts li {
+    width: 45%; 
+  }
 
   #tab-content {
-    padding: 0.5rem; 
+    padding: 0.5rem;
+  }
 }
-}
+
 @media (max-width: 480px) {
+  #core-concepts li {
+    width: 100%; 
+  }
+
   #tab-content {
-    padding: 0.25rem; 
+    padding: 0.25rem;
   }
 }
